@@ -101,19 +101,6 @@ class RecipeNotifier extends StateNotifier<RecipeState> {
     } catch (_) {}
   }
 
-  /// Cook recipe
-  Future<bool> cookRecipe(int id) async {
-    state = state.copyWith(cookingRecipeId: id);
-    try {
-      await _recipeRepository.cookRecipe(id);
-      state = state.copyWith(cookingRecipeId: null);
-      return true;
-    } on ApiException catch (e) {
-      state = state.copyWith(cookingRecipeId: null, error: e.message);
-      return false;
-    }
-  }
-
   /// Create recipe
   Future<bool> createRecipe({
     required String title,
@@ -161,6 +148,28 @@ class RecipeNotifier extends StateNotifier<RecipeState> {
       return true;
     } on ApiException catch (e) {
       state = state.copyWith(error: e.message);
+      return false;
+    }
+  }
+
+  /// Cook recipe - deducts ingredients from pantry
+  Future<bool> cookRecipe(int id) async {
+    // Set cooking state
+    state = state.copyWith(cookingRecipeId: id);
+
+    try {
+      await _recipeRepository.cookRecipe(id);
+      // Clear cooking state on success
+      state = state.copyWith(cookingRecipeId: null);
+      return true;
+    } on ApiException catch (e) {
+      state = state.copyWith(cookingRecipeId: null, error: e.message);
+      return false;
+    } catch (e) {
+      state = state.copyWith(
+        cookingRecipeId: null,
+        error: 'Gagal memasak resep: $e',
+      );
       return false;
     }
   }
