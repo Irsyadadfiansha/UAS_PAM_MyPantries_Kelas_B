@@ -207,9 +207,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(
-              onPressed: () {
-                // Navigate to pantry
-              },
+              onPressed: () => context.push('/pantry'),
               icon: const Icon(Icons.add),
               label: const Text(AppStrings.addIngredients),
             ),

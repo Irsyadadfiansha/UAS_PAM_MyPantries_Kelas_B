@@ -5,6 +5,7 @@ import '../presentation/providers/auth_provider.dart';
 import '../presentation/screens/auth/login_screen.dart';
 import '../presentation/screens/auth/register_screen.dart';
 import '../presentation/screens/main_screen.dart';
+import '../presentation/screens/pantry/pantry_screen.dart';
 import '../presentation/screens/recipes/recipe_detail_screen.dart';
 
 /// Router provider
@@ -51,6 +52,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/',
         name: 'home',
         builder: (context, state) => const MainScreen(),
+      ),
+      GoRoute(
+        path: '/pantry',
+        name: 'pantry',
+        builder: (context, state) => const PantryScreen(),
       ),
       // Recipe detail
       GoRoute(
