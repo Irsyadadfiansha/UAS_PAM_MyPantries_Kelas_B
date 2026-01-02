@@ -1,7 +1,7 @@
 # 🍳 MyPantries - Smart Pantry & Meal Planner
 
 <p align="center">
-  <img src="assets/images/icon.png" alt="MyPantries Logo" width="120" height="120">
+  <img src="screenshots/icon.jpeg" alt="MyPantries Logo" width="120" height="120">
 </p>
 
 <p align="center">
@@ -71,7 +71,7 @@ Aplikasi ini terhubung dengan backend API Laravel untuk menyimpan dan mengelola 
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/username/mypantries-mobile.git
+git clone [https://github.com/Irsyadadfiansha/UAS_PAM_MyPantries_Kelas_B.git]
 cd mypantries-mobile
 ```
 
@@ -208,7 +208,10 @@ Proyek ini dibuat untuk keperluan tugas kuliah.
 
 ## 👥 Tim Pengembang
 
-- **[Nama Anda]** - _Initial work_
+- **[Irsyad Adfiansha Hidayat]** - 1237050042
+- **[Fauzi Abdul  Malik]** -  1237050018
+- **[Fauzan Ramdhani]** -  1237050045
+- **[Fariz Ahmad Fadillah]** -  1237050064
 
 ---
 
@@ -217,7 +220,7 @@ Proyek ini dibuat untuk keperluan tugas kuliah.
 Jika ada pertanyaan, silakan hubungi:
 
 - Email: irsyadadfiansha9@gmail.com
-- GitHub: [@username](https://github.com/username)
+- GitHub: [@username](https://github.com/Irsyadadfiansha)
 
 ---
 
