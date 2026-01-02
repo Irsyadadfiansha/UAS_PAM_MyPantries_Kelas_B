@@ -3,7 +3,6 @@ import 'ingredient_model.dart';
 
 part 'pantry_item_model.g.dart';
 
-/// Pantry item model
 @JsonSerializable()
 class PantryItem {
   final int id;
@@ -61,7 +60,7 @@ class PantryItem {
       _$PantryItemFromJson(json);
   Map<String, dynamic> toJson() => _$PantryItemToJson(this);
 
-  /// Check if item is expiring within 7 days
+ 
   bool get isExpiringSoon {
     if (isExpiringSoonFromApi != null) return isExpiringSoonFromApi!;
     if (expiryDate == null) return false;
@@ -69,33 +68,33 @@ class PantryItem {
     return daysUntil <= 7 && daysUntil >= 0;
   }
 
-  /// Check if item is expired
+
   bool get isExpired {
     if (expiryDate == null) return false;
     return expiryDate!.isBefore(DateTime.now());
   }
 
-  /// Get days until expiry
+
   int get daysUntilExpiry {
     if (daysUntilExpiryFromApi != null) return daysUntilExpiryFromApi!;
     if (expiryDate == null) return 0;
     return expiryDate!.difference(DateTime.now()).inDays;
   }
 
-  /// Get formatted quantity with unit
+ 
   String get formattedQuantity =>
       '${quantity.toStringAsFixed(quantity.truncateToDouble() == quantity ? 0 : 1)} $unit';
 
-  /// Get formatted price per 100g
+  
   String? get formattedPricePer100g {
     if (pricePer100g == null) return null;
     return 'Rp ${pricePer100g!.toStringAsFixed(0)}/100g';
   }
 
-  /// Get ingredient name safely
+  
   String get ingredientName => ingredient?.name ?? 'Unknown';
 
-  /// Get ingredient category safely
+  
   String get ingredientCategory => ingredient?.category ?? 'Unknown';
 
   PantryItem copyWith({
@@ -129,7 +128,7 @@ class PantryItem {
   }
 }
 
-/// Unit options for pantry items
+
 class PantryUnits {
   static const List<String> all = [
     'g',

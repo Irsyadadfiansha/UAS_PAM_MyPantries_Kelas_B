@@ -9,7 +9,7 @@ import '../../providers/auth_provider.dart';
 import '../../providers/pantry_provider.dart';
 import '../../providers/recipe_provider.dart';
 
-/// Home dashboard screen
+
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 

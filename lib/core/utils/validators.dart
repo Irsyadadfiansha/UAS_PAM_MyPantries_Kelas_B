@@ -1,13 +1,13 @@
-/// Form validators
+
 class Validators {
   Validators._();
 
-  /// Email validation regex
+
   static final RegExp _emailRegex = RegExp(
     r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
   );
 
-  /// Validate email
+
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Email wajib diisi';
@@ -18,7 +18,7 @@ class Validators {
     return null;
   }
 
-  /// Validate password
+
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'Kata sandi wajib diisi';
@@ -29,7 +29,7 @@ class Validators {
     return null;
   }
 
-  /// Validate password confirmation
+ 
   static String? validateConfirmPassword(String? value, String password) {
     if (value == null || value.isEmpty) {
       return 'Konfirmasi kata sandi wajib diisi';
@@ -40,7 +40,7 @@ class Validators {
     return null;
   }
 
-  /// Validate required field
+  
   static String? validateRequired(String? value, String fieldName) {
     if (value == null || value.isEmpty) {
       return '$fieldName wajib diisi';
@@ -48,7 +48,7 @@ class Validators {
     return null;
   }
 
-  /// Validate number
+ 
   static String? validateNumber(String? value, String fieldName) {
     if (value == null || value.isEmpty) {
       return '$fieldName wajib diisi';
@@ -59,7 +59,7 @@ class Validators {
     return null;
   }
 
-  /// Validate positive number
+ 
   static String? validatePositiveNumber(String? value, String fieldName) {
     if (value == null || value.isEmpty) {
       return '$fieldName wajib diisi';

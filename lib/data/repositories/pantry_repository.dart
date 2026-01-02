@@ -5,13 +5,13 @@ import '../../core/network/api_client.dart';
 import '../../core/network/api_exceptions.dart';
 import '../models/pantry_item_model.dart';
 
-/// Pantry repository for pantry operations
+
 class PantryRepository {
   final ApiClient _apiClient;
 
   PantryRepository(this._apiClient);
 
-  /// Get all pantry items
+
   Future<List<PantryItem>> getPantryItems() async {
     try {
       final response = await _apiClient.get(ApiConstants.pantry);
@@ -28,7 +28,7 @@ class PantryRepository {
     }
   }
 
-  /// Get items expiring soon (within 7 days)
+
   Future<List<PantryItem>> getExpiringSoon() async {
     try {
       final response = await _apiClient.get(ApiConstants.pantryExpiringSoon);
@@ -45,7 +45,7 @@ class PantryRepository {
     }
   }
 
-  /// Get single pantry item
+
   Future<PantryItem> getPantryItem(int id) async {
     try {
       final response = await _apiClient.get('${ApiConstants.pantry}/$id');
@@ -59,7 +59,7 @@ class PantryRepository {
     }
   }
 
-  /// Add new pantry item
+
   Future<PantryItem> addPantryItem({
     required int ingredientId,
     required double quantity,
@@ -89,7 +89,6 @@ class PantryRepository {
     }
   }
 
-  /// Update pantry item
   Future<PantryItem> updatePantryItem({
     required int id,
     int? ingredientId,
@@ -120,7 +119,7 @@ class PantryRepository {
     }
   }
 
-  /// Delete pantry item
+
   Future<void> deletePantryItem(int id) async {
     try {
       await _apiClient.delete('${ApiConstants.pantry}/$id');
@@ -133,7 +132,7 @@ class PantryRepository {
   }
 }
 
-/// Provider for PantryRepository
+
 final pantryRepositoryProvider = Provider<PantryRepository>((ref) {
   return PantryRepository(ref.watch(apiClientProvider));
 });

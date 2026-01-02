@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../constants/api_constants.dart';
 import 'api_interceptor.dart';
 
-/// Provider for Dio HTTP client
+
 final dioProvider = Provider<Dio>((ref) {
   final dio = Dio(
     BaseOptions(
@@ -17,7 +17,7 @@ final dioProvider = Provider<Dio>((ref) {
     ),
   );
 
-  // Add interceptors
+
   dio.interceptors.add(ApiInterceptor(ref));
   dio.interceptors.add(
     LogInterceptor(
@@ -32,13 +32,13 @@ final dioProvider = Provider<Dio>((ref) {
   return dio;
 });
 
-/// API Client wrapper for making HTTP requests
+
 class ApiClient {
   final Dio _dio;
 
   ApiClient(this._dio);
 
-  /// GET request
+
   Future<Response<T>> get<T>(
     String path, {
     Map<String, dynamic>? queryParameters,
@@ -51,7 +51,6 @@ class ApiClient {
     );
   }
 
-  /// POST request
   Future<Response<T>> post<T>(
     String path, {
     dynamic data,
@@ -66,7 +65,7 @@ class ApiClient {
     );
   }
 
-  /// PUT request
+
   Future<Response<T>> put<T>(
     String path, {
     dynamic data,
@@ -81,7 +80,7 @@ class ApiClient {
     );
   }
 
-  /// DELETE request
+
   Future<Response<T>> delete<T>(
     String path, {
     dynamic data,
@@ -97,7 +96,7 @@ class ApiClient {
   }
 }
 
-/// Provider for API Client
+
 final apiClientProvider = Provider<ApiClient>((ref) {
   return ApiClient(ref.watch(dioProvider));
 });

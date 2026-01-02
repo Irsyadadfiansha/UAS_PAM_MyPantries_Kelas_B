@@ -3,7 +3,7 @@ import '../../data/models/ingredient_model.dart';
 import '../../data/repositories/ingredient_repository.dart';
 import '../../core/network/api_exceptions.dart';
 
-/// Ingredient state
+
 class IngredientState {
   final bool isLoading;
   final List<Ingredient> ingredients;
@@ -28,14 +28,14 @@ class IngredientState {
   }
 }
 
-/// Ingredient notifier
+
 class IngredientNotifier extends StateNotifier<IngredientState> {
   final IngredientRepository _ingredientRepository;
 
   IngredientNotifier(this._ingredientRepository)
     : super(const IngredientState());
 
-  /// Load all ingredients
+
   Future<void> loadIngredients() async {
     state = state.copyWith(isLoading: true, error: null);
     try {
@@ -46,7 +46,7 @@ class IngredientNotifier extends StateNotifier<IngredientState> {
     }
   }
 
-  /// Search ingredients by name
+  
   List<Ingredient> searchIngredients(String query) {
     if (query.isEmpty) return state.ingredients;
     return state.ingredients
@@ -54,19 +54,19 @@ class IngredientNotifier extends StateNotifier<IngredientState> {
         .toList();
   }
 
-  /// Get ingredients by category
+
   List<Ingredient> getByCategory(String category) {
     return state.ingredients.where((i) => i.category == category).toList();
   }
 }
 
-/// Provider for IngredientNotifier
+
 final ingredientProvider =
     StateNotifierProvider<IngredientNotifier, IngredientState>((ref) {
       return IngredientNotifier(ref.watch(ingredientRepositoryProvider));
     });
 
-/// Provider for all ingredients list
+
 final ingredientsListProvider = Provider<List<Ingredient>>((ref) {
   return ref.watch(ingredientProvider).ingredients;
 });

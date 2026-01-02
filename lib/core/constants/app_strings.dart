@@ -1,12 +1,12 @@
-/// Indonesian Language Strings for EaThink Mobile App
+
 class AppStrings {
   AppStrings._();
 
-  // App
+
   static const String appName = 'EaThink';
   static const String appTagline = 'Smart Pantry & Meal Planner';
 
-  // Auth
+
   static const String login = 'Masuk';
   static const String register = 'Daftar';
   static const String email = 'Email';
@@ -20,7 +20,7 @@ class AppStrings {
   static const String loginNow = 'Masuk sekarang';
   static const String logout = 'Keluar';
 
-  // Validation
+
   static const String emailRequired = 'Email wajib diisi';
   static const String emailInvalid = 'Format email tidak valid';
   static const String passwordRequired = 'Kata sandi wajib diisi';
@@ -28,7 +28,7 @@ class AppStrings {
   static const String passwordMismatch = 'Kata sandi tidak cocok';
   static const String nameRequired = 'Nama wajib diisi';
 
-  // Home
+
   static const String greeting = 'Halo';
   static const String pantryCount = 'Item Pantry';
   static const String recipesReady = 'Resep Siap';
@@ -38,7 +38,7 @@ class AppStrings {
   static const String noRecommendations = 'Tidak ada rekomendasi';
   static const String addIngredients = 'Tambah Bahan';
 
-  // Pantry
+
   static const String pantryTitle = 'Pantry Saya';
   static const String searchIngredients = 'Cari bahan...';
   static const String all = 'Semua';
@@ -57,7 +57,6 @@ class AppStrings {
   static const String daysLeft = 'hari lagi';
   static const String expired = 'Kadaluarsa';
 
-  // Recipes
   static const String recipesTitle = 'Daftar Resep';
   static const String recipesSubtitle =
       'Temukan ide masak berdasarkan isi pantry-mu';
@@ -79,7 +78,7 @@ class AppStrings {
   static const String ingredientsList = 'Daftar Bahan';
   static const String cookingSteps = 'Langkah Memasak';
 
-  // Recipe Categories
+
   static const String appetizer = 'Appetizer';
   static const String mainCourse = 'Main Course';
   static const String sideDishes = 'Side Dishes';
@@ -92,7 +91,6 @@ class AppStrings {
   static const String supperMenu = 'Supper Menu';
   static const String teaTimeMenu = 'Tea Time Menu';
 
-  // Ingredient Categories
   static const String protein = 'Protein';
   static const String vegetables = 'Sayuran';
   static const String dairy = 'Susu';
@@ -102,7 +100,6 @@ class AppStrings {
   static const String spices = 'Rempah';
   static const String minerals = 'Mineral';
 
-  // Units
   static const String gram = 'g';
   static const String kilogram = 'kg';
   static const String milliliter = 'ml';
@@ -114,16 +111,15 @@ class AppStrings {
   static const String teaspoon = 'tsp';
   static const String cloves = 'cloves';
 
-  // Profile
   static const String profile = 'Profil';
   static const String accountInfo = 'Informasi Akun';
 
-  // Navigation
+
   static const String home = 'Beranda';
   static const String pantry = 'Pantry';
   static const String recipes = 'Resep';
 
-  // Common
+
   static const String loading = 'Memuat...';
   static const String error = 'Terjadi kesalahan';
   static const String retry = 'Coba Lagi';
@@ -134,7 +130,7 @@ class AppStrings {
       'Tindakan ini permanen dan tidak dapat dibatalkan.';
   static const String noData = 'Tidak ada data';
 
-  // Sorting
+
   static const String sortDefault = 'Default';
   static const String sortByServings = 'Porsi (Banyak-Sedikit)';
   static const String sortByTime = 'Waktu (Cepat-Lama)';

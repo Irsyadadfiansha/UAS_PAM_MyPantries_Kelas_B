@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/services/storage_service.dart';
 import 'api_exceptions.dart';
 
-/// Dio interceptor for adding auth token and handling errors
+
 class ApiInterceptor extends Interceptor {
   final Ref ref;
 
@@ -14,7 +14,7 @@ class ApiInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    // Add auth token if available
+   
     final storageService = ref.read(storageServiceProvider);
     final token = await storageService.getToken();
 
@@ -22,7 +22,7 @@ class ApiInterceptor extends Interceptor {
       options.headers['Authorization'] = 'Bearer $token';
     }
 
-    // Add common headers
+
     options.headers['Accept'] = 'application/json';
     options.headers['Content-Type'] = 'application/json';
 

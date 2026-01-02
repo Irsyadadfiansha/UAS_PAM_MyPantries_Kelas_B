@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'user_model.g.dart';
 
-/// User model
+
 @JsonSerializable()
 class User {
   final int id;
@@ -49,7 +49,7 @@ class User {
   }
 }
 
-/// Auth response model
+
 @JsonSerializable()
 class AuthResponse {
   final User user;

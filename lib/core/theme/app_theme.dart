@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
 
-/// App Theme Configuration using Material Design 3
+
 class AppTheme {
   AppTheme._();
 
-  /// Light theme for the app
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,

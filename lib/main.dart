@@ -8,7 +8,7 @@ import 'presentation/providers/auth_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize SharedPreferences
+ 
   final sharedPreferences = await SharedPreferences.getInstance();
 
   runApp(
@@ -21,7 +21,7 @@ void main() async {
   );
 }
 
-/// App loader that checks auth status before showing the app
+
 class EaThinkAppLoader extends ConsumerStatefulWidget {
   const EaThinkAppLoader({super.key});
 
@@ -33,7 +33,7 @@ class _EaThinkAppLoaderState extends ConsumerState<EaThinkAppLoader> {
   @override
   void initState() {
     super.initState();
-    // Check auth status on app start
+  
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.read(authProvider.notifier).checkAuthStatus();
     });

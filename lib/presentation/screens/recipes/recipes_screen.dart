@@ -12,7 +12,7 @@ import '../../widgets/common/loading_widget.dart';
 import '../../widgets/common/empty_state_widget.dart';
 import '../../widgets/common/error_widget.dart';
 
-/// Recipes screen
+
 class RecipesScreen extends ConsumerStatefulWidget {
   const RecipesScreen({super.key});
 

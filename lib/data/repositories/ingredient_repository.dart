@@ -5,13 +5,13 @@ import '../../core/network/api_client.dart';
 import '../../core/network/api_exceptions.dart';
 import '../models/ingredient_model.dart';
 
-/// Ingredient repository for ingredient operations
+
 class IngredientRepository {
   final ApiClient _apiClient;
 
   IngredientRepository(this._apiClient);
 
-  /// Get all ingredients
+
   Future<List<Ingredient>> getIngredients() async {
     try {
       final response = await _apiClient.get(ApiConstants.ingredients);
@@ -28,7 +28,7 @@ class IngredientRepository {
     }
   }
 
-  /// Get ingredient categories
+ 
   Future<List<String>> getCategories() async {
     try {
       final response = await _apiClient.get(ApiConstants.ingredientCategories);
@@ -43,7 +43,7 @@ class IngredientRepository {
     }
   }
 
-  /// Get single ingredient
+ 
   Future<Ingredient> getIngredient(int id) async {
     try {
       final response = await _apiClient.get('${ApiConstants.ingredients}/$id');
@@ -57,7 +57,7 @@ class IngredientRepository {
     }
   }
 
-  /// Create new ingredient
+ 
   Future<Ingredient> createIngredient({
     required String name,
     required String category,
@@ -83,7 +83,7 @@ class IngredientRepository {
   }
 }
 
-/// Provider for IngredientRepository
+
 final ingredientRepositoryProvider = Provider<IngredientRepository>((ref) {
   return IngredientRepository(ref.watch(apiClientProvider));
 });

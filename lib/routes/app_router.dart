@@ -8,7 +8,7 @@ import '../presentation/screens/main_screen.dart';
 import '../presentation/screens/pantry/pantry_screen.dart';
 import '../presentation/screens/recipes/recipe_detail_screen.dart';
 
-/// Router provider
+
 final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authProvider);
 
@@ -20,15 +20,13 @@ final routerProvider = Provider<GoRouter>((ref) {
           state.matchedLocation == '/login' ||
           state.matchedLocation == '/register';
 
-      // If loading, don't redirect
       if (authState.isLoading) return null;
 
-      // If not logged in and not on auth route, redirect to login
+   
       if (!isLoggedIn && !isAuthRoute) {
         return '/login';
       }
 
-      // If logged in and on auth route, redirect to home
       if (isLoggedIn && isAuthRoute) {
         return '/';
       }
@@ -36,7 +34,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       return null;
     },
     routes: [
-      // Auth routes
+
       GoRoute(
         path: '/login',
         name: 'login',
@@ -47,7 +45,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         name: 'register',
         builder: (context, state) => const RegisterScreen(),
       ),
-      // Main app with bottom navigation
+  
       GoRoute(
         path: '/',
         name: 'home',
@@ -58,7 +56,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         name: 'pantry',
         builder: (context, state) => const PantryScreen(),
       ),
-      // Recipe detail
+   
       GoRoute(
         path: '/recipes/:id',
         name: 'recipe-detail',

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../core/constants/app_colors.dart';
 
-/// Loading widget with shimmer effect
+
 class LoadingWidget extends StatelessWidget {
   final String? message;
 
@@ -25,7 +25,7 @@ class LoadingWidget extends StatelessWidget {
   }
 }
 
-/// Shimmer loading card
+
 class ShimmerCard extends StatelessWidget {
   final double height;
   final double? width;
@@ -49,7 +49,7 @@ class ShimmerCard extends StatelessWidget {
   }
 }
 
-/// Shimmer list loader
+
 class ShimmerListLoader extends StatelessWidget {
   final int itemCount;
   final double itemHeight;
@@ -71,7 +71,7 @@ class ShimmerListLoader extends StatelessWidget {
   }
 }
 
-/// Shimmer grid loader
+
 class ShimmerGridLoader extends StatelessWidget {
   final int itemCount;
   final int crossAxisCount;

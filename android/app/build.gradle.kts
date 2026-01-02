@@ -40,8 +40,8 @@ android {
         applicationId = "com.eathink.eathink_mobile"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
-        versionCode = 3
-        versionName = "1.0.2"
+        versionCode = 21
+        versionName = "2.0.1"
     }
 
     signingConfigs {

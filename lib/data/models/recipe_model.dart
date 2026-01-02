@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'recipe_model.g.dart';
 
-/// Recipe ingredient - the pivot table data
+
 @JsonSerializable()
 class RecipeIngredient {
   final int id;
@@ -28,12 +28,12 @@ class RecipeIngredient {
       _$RecipeIngredientFromJson(json);
   Map<String, dynamic> toJson() => _$RecipeIngredientToJson(this);
 
-  /// Get formatted quantity with unit
+ 
   String get formattedQuantity =>
       '${quantityNeeded.toStringAsFixed(quantityNeeded.truncateToDouble() == quantityNeeded ? 0 : 1)} $unit';
 }
 
-/// Recipe model
+
 @JsonSerializable()
 class Recipe {
   final int id;
@@ -63,7 +63,7 @@ class Recipe {
   @JsonKey(name: 'updated_at')
   final DateTime updatedAt;
 
-  // Computed fields from API
+
   @JsonKey(name: 'match_percentage')
   final int? matchPercentage;
 
@@ -99,16 +99,16 @@ class Recipe {
   factory Recipe.fromJson(Map<String, dynamic> json) => _$RecipeFromJson(json);
   Map<String, dynamic> toJson() => _$RecipeToJson(this);
 
-  /// Get formatted cooking time
+ 
   String get formattedCookingTime => '$cookingTime menit';
 
-  /// Get formatted servings
+ 
   String get formattedServings => servings != null ? '$servings porsi' : '-';
 
-  /// Get actual ingredient count
+ 
   int get actualIngredientCount => ingredientCount ?? ingredients?.length ?? 0;
 
-  /// Get instructions as list of steps
+  
   List<String> get instructionSteps {
     return instructions
         .split('\n')
@@ -117,7 +117,7 @@ class Recipe {
         .toList();
   }
 
-  /// Check if all ingredients are available
+  
   bool get isReadyToCook => canCook ?? false;
 
   Recipe copyWith({
@@ -161,7 +161,7 @@ class Recipe {
   }
 }
 
-/// Recipe categories
+
 class RecipeCategories {
   static const List<String> all = [
     'appetizer',

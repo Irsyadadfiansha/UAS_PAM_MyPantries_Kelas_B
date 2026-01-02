@@ -4,7 +4,7 @@ import 'routes/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/constants/app_strings.dart';
 
-/// Main App Widget
+
 class EaThinkApp extends ConsumerWidget {
   const EaThinkApp({super.key});
 

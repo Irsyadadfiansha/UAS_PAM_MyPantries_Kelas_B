@@ -3,7 +3,7 @@ import '../../data/models/pantry_item_model.dart';
 import '../../data/repositories/pantry_repository.dart';
 import '../../core/network/api_exceptions.dart';
 
-/// Pantry state
+
 class PantryState {
   final bool isLoading;
   final List<PantryItem> items;
@@ -21,7 +21,7 @@ class PantryState {
     this.searchQuery = '',
   });
 
-  /// Get filtered items based on search and category
+
   List<PantryItem> get filteredItems {
     return items.where((item) {
       // Category filter
@@ -31,7 +31,7 @@ class PantryState {
         }
       }
 
-      // Search filter
+
       if (searchQuery.isNotEmpty) {
         return item.ingredientName.toLowerCase().contains(
           searchQuery.toLowerCase(),
@@ -42,7 +42,7 @@ class PantryState {
     }).toList();
   }
 
-  /// Get count of items
+
   int get itemCount => items.length;
 
   PantryState copyWith({
@@ -64,13 +64,13 @@ class PantryState {
   }
 }
 
-/// Pantry notifier
+
 class PantryNotifier extends StateNotifier<PantryState> {
   final PantryRepository _pantryRepository;
 
   PantryNotifier(this._pantryRepository) : super(const PantryState());
 
-  /// Load pantry items
+
   Future<void> loadPantryItems() async {
     state = state.copyWith(isLoading: true, error: null);
     try {
@@ -81,7 +81,7 @@ class PantryNotifier extends StateNotifier<PantryState> {
     }
   }
 
-  /// Load expiring soon items
+
   Future<void> loadExpiringSoon() async {
     try {
       final items = await _pantryRepository.getExpiringSoon();
@@ -89,7 +89,7 @@ class PantryNotifier extends StateNotifier<PantryState> {
     } catch (_) {}
   }
 
-  /// Add pantry item
+
   Future<bool> addItem({
     required int ingredientId,
     required double quantity,
@@ -113,7 +113,7 @@ class PantryNotifier extends StateNotifier<PantryState> {
     }
   }
 
-  /// Delete pantry item
+
   Future<bool> deleteItem(int id) async {
     try {
       await _pantryRepository.deletePantryItem(id);
@@ -127,40 +127,37 @@ class PantryNotifier extends StateNotifier<PantryState> {
     }
   }
 
-  /// Set category filter
+
   void setCategory(String? category) {
     state = state.copyWith(selectedCategory: category);
   }
 
-  /// Set search query
+
   void setSearchQuery(String query) {
     state = state.copyWith(searchQuery: query);
   }
 
-  /// Clear error
   void clearError() {
     state = state.copyWith(error: null);
   }
 
-  /// Refresh all
   Future<void> refresh() async {
     await Future.wait([loadPantryItems(), loadExpiringSoon()]);
   }
 }
 
-/// Provider for PantryNotifier
+
 final pantryProvider = StateNotifierProvider<PantryNotifier, PantryState>((
   ref,
 ) {
   return PantryNotifier(ref.watch(pantryRepositoryProvider));
 });
 
-/// Provider for pantry item count
 final pantryCountProvider = Provider<int>((ref) {
   return ref.watch(pantryProvider).itemCount;
 });
 
-/// Provider for expiring soon items
+
 final expiringSoonProvider = Provider<List<PantryItem>>((ref) {
   return ref.watch(pantryProvider).expiringSoon;
 });

@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ingredient_model.g.dart';
 
-/// Ingredient model
+
 @JsonSerializable()
 class Ingredient {
   final int id;
@@ -49,7 +49,7 @@ class Ingredient {
   int get hashCode => id.hashCode;
 }
 
-/// Ingredient category list
+
 class IngredientCategories {
   static const List<String> all = [
     'Protein',

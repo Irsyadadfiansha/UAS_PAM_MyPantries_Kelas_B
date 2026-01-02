@@ -5,13 +5,13 @@ import '../../core/network/api_client.dart';
 import '../../core/network/api_exceptions.dart';
 import '../models/recipe_model.dart';
 
-/// Recipe repository for recipe operations
+
 class RecipeRepository {
   final ApiClient _apiClient;
 
   RecipeRepository(this._apiClient);
 
-  /// Get all recipes
+
   Future<List<Recipe>> getRecipes({String? category, String? sortBy}) async {
     try {
       final response = await _apiClient.get(
@@ -34,7 +34,7 @@ class RecipeRepository {
     }
   }
 
-  /// Get recipes with match percentage
+
   Future<List<Recipe>> getRecipesWithMatch({
     String? category,
     String? sortBy,
@@ -60,7 +60,7 @@ class RecipeRepository {
     }
   }
 
-  /// Get recommended recipes (can cook now)
+
   Future<List<Recipe>> getRecommendations() async {
     try {
       final response = await _apiClient.get(ApiConstants.recipeRecommendations);
@@ -79,7 +79,7 @@ class RecipeRepository {
     }
   }
 
-  /// Get single recipe with ingredients
+
   Future<Recipe> getRecipe(int id) async {
     try {
       final response = await _apiClient.get('${ApiConstants.recipes}/$id');
@@ -93,7 +93,6 @@ class RecipeRepository {
     }
   }
 
-  /// Create new recipe
   Future<Recipe> createRecipe({
     required String title,
     required String description,
@@ -128,7 +127,7 @@ class RecipeRepository {
     }
   }
 
-  /// Update recipe
+
   Future<Recipe> updateRecipe({
     required int id,
     String? title,
@@ -164,7 +163,7 @@ class RecipeRepository {
     }
   }
 
-  /// Delete recipe
+
   Future<void> deleteRecipe(int id) async {
     try {
       await _apiClient.delete('${ApiConstants.recipes}/$id');
@@ -176,7 +175,7 @@ class RecipeRepository {
     }
   }
 
-  /// Cook recipe (deduct ingredients from pantry)
+ 
   Future<void> cookRecipe(int id) async {
     try {
       await _apiClient.post('${ApiConstants.recipes}/$id/cook');
@@ -189,7 +188,7 @@ class RecipeRepository {
   }
 }
 
-/// Provider for RecipeRepository
+
 final recipeRepositoryProvider = Provider<RecipeRepository>((ref) {
   return RecipeRepository(ref.watch(apiClientProvider));
 });

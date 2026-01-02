@@ -7,7 +7,7 @@ import 'pantry/pantry_screen.dart';
 import 'recipes/recipes_screen.dart';
 import 'profile/profile_screen.dart';
 
-/// Main screen with bottom navigation
+
 class MainScreen extends ConsumerStatefulWidget {
   const MainScreen({super.key});
 

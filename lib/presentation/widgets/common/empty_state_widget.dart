@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_strings.dart';
 
-/// Empty state widget with icon and message
+
 class EmptyStateWidget extends StatelessWidget {
   final IconData icon;
   final String title;

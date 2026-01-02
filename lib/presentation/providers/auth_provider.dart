@@ -3,7 +3,7 @@ import '../../data/models/user_model.dart';
 import '../../data/repositories/auth_repository.dart';
 import '../../core/network/api_exceptions.dart';
 
-/// Auth state
+
 class AuthState {
   final bool isLoading;
   final bool isAuthenticated;
@@ -32,13 +32,13 @@ class AuthState {
   }
 }
 
-/// Auth notifier
+
 class AuthNotifier extends StateNotifier<AuthState> {
   final AuthRepository _authRepository;
 
   AuthNotifier(this._authRepository) : super(const AuthState());
 
-  /// Check initial auth status
+  
   Future<void> checkAuthStatus() async {
     state = state.copyWith(isLoading: true);
     try {
@@ -58,7 +58,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  /// Login
+
   Future<bool> login(String email, String password) async {
     state = state.copyWith(isLoading: true, error: null);
     try {
@@ -81,7 +81,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  /// Register
+
   Future<bool> register({
     required String name,
     required String email,
@@ -114,30 +114,30 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  /// Logout
+ 
   Future<void> logout() async {
     state = state.copyWith(isLoading: true);
     await _authRepository.logout();
     state = const AuthState();
   }
 
-  /// Clear error
+ 
   void clearError() {
     state = state.copyWith(error: null);
   }
 }
 
-/// Provider for AuthNotifier
+
 final authProvider = StateNotifierProvider<AuthNotifier, AuthState>((ref) {
   return AuthNotifier(ref.watch(authRepositoryProvider));
 });
 
-/// Provider for checking if user is authenticated
+
 final isAuthenticatedProvider = Provider<bool>((ref) {
   return ref.watch(authProvider).isAuthenticated;
 });
 
-/// Provider for current user
+
 final currentUserProvider = Provider<User?>((ref) {
   return ref.watch(authProvider).user;
 });

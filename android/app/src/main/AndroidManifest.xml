@@ -5,9 +5,10 @@
     <!-- Declare that app doesn't use advertising ID -->
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove" xmlns:tools="http://schemas.android.com/tools"/>
     <application
-        android:label="EaThink"
+        android:label="MyPantries"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"

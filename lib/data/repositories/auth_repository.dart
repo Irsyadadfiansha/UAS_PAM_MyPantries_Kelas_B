@@ -6,14 +6,14 @@ import '../../core/network/api_exceptions.dart';
 import '../models/user_model.dart';
 import '../services/storage_service.dart';
 
-/// Auth repository for authentication operations
+
 class AuthRepository {
   final ApiClient _apiClient;
   final StorageService _storageService;
 
   AuthRepository(this._apiClient, this._storageService);
 
-  /// Login with email and password
+
   Future<User> login(String email, String password) async {
     try {
       final response = await _apiClient.post(
@@ -24,7 +24,7 @@ class AuthRepository {
       final data = response.data as Map<String, dynamic>;
       final authResponse = AuthResponse.fromJson(data);
 
-      // Save token
+  
       await _storageService.saveToken(authResponse.token);
       await _storageService.saveUserId(authResponse.user.id);
 
@@ -37,7 +37,7 @@ class AuthRepository {
     }
   }
 
-  /// Register new user
+
   Future<User> register({
     required String name,
     required String email,
@@ -58,7 +58,7 @@ class AuthRepository {
       final data = response.data as Map<String, dynamic>;
       final authResponse = AuthResponse.fromJson(data);
 
-      // Save token
+     
       await _storageService.saveToken(authResponse.token);
       await _storageService.saveUserId(authResponse.user.id);
 
@@ -71,14 +71,14 @@ class AuthRepository {
     }
   }
 
-  /// Get current user
+
   Future<User> getCurrentUser() async {
     try {
       final response = await _apiClient.get(ApiConstants.user);
       final data = response.data as Map<String, dynamic>;
       print('getCurrentUser API response: $data');
 
-      // API might return {data: {...}} or direct user object or {user: {...}}
+   
       if (data.containsKey('data')) {
         return User.fromJson(data['data'] as Map<String, dynamic>);
       } else if (data.containsKey('user')) {
@@ -94,7 +94,7 @@ class AuthRepository {
     }
   }
 
-  /// Logout
+
   Future<void> logout() async {
     try {
       await _apiClient.post(ApiConstants.logout);
@@ -105,13 +105,13 @@ class AuthRepository {
     }
   }
 
-  /// Check if user is logged in
+
   Future<bool> isLoggedIn() async {
     return await _storageService.isLoggedIn();
   }
 }
 
-/// Provider for AuthRepository
+
 final authRepositoryProvider = Provider<AuthRepository>((ref) {
   return AuthRepository(
     ref.watch(apiClientProvider),

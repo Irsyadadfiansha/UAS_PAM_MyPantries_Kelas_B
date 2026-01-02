@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_strings.dart';
 
-/// Error widget with retry button
+
 class AppErrorWidget extends StatelessWidget {
   final String? message;
   final VoidCallback? onRetry;

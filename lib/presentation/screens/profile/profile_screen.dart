@@ -5,7 +5,7 @@ import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_strings.dart';
 import '../../providers/auth_provider.dart';
 
-/// Profile screen
+
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 

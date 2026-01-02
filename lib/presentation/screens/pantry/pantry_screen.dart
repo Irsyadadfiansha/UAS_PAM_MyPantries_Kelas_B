@@ -11,7 +11,7 @@ import '../../widgets/common/loading_widget.dart';
 import '../../widgets/common/empty_state_widget.dart';
 import '../../widgets/common/error_widget.dart';
 
-/// Pantry screen
+
 class PantryScreen extends ConsumerStatefulWidget {
   const PantryScreen({super.key});
 

@@ -3,7 +3,7 @@ import '../../data/models/recipe_model.dart';
 import '../../data/repositories/recipe_repository.dart';
 import '../../core/network/api_exceptions.dart';
 
-/// Recipe state
+
 class RecipeState {
   final bool isLoading;
   final List<Recipe> recipes;
@@ -25,11 +25,11 @@ class RecipeState {
     this.cookingRecipeId,
   });
 
-  /// Get filtered recipes
+  
   List<Recipe> get filteredRecipes {
     var result = recipes;
 
-    // Filter by category (client-side workaround since backend doesn't filter correctly)
+   
     if (selectedCategory != null) {
       result = result.where((r) {
         final recipeCategories = r.categories ?? [];
@@ -39,7 +39,7 @@ class RecipeState {
       }).toList();
     }
 
-    // Filter by can cook
+   
     if (showOnlyCanCook) {
       result = result.where((r) => r.canCook == true).toList();
     }
@@ -47,7 +47,6 @@ class RecipeState {
     return result;
   }
 
-  /// Get count of recipes that can be cooked
   int get canCookCount => recipes.where((r) => r.canCook == true).length;
 
   RecipeState copyWith({
@@ -73,13 +72,13 @@ class RecipeState {
   }
 }
 
-/// Recipe notifier
+
 class RecipeNotifier extends StateNotifier<RecipeState> {
   final RecipeRepository _recipeRepository;
 
   RecipeNotifier(this._recipeRepository) : super(const RecipeState());
 
-  /// Load recipes with match percentage
+
   Future<void> loadRecipes() async {
     state = state.copyWith(isLoading: true, error: null);
     try {
@@ -93,7 +92,7 @@ class RecipeNotifier extends StateNotifier<RecipeState> {
     }
   }
 
-  /// Load recommendations
+
   Future<void> loadRecommendations() async {
     try {
       final recommendations = await _recipeRepository.getRecommendations();
@@ -101,7 +100,7 @@ class RecipeNotifier extends StateNotifier<RecipeState> {
     } catch (_) {}
   }
 
-  /// Create recipe
+
   Future<bool> createRecipe({
     required String title,
     required String description,
@@ -138,7 +137,7 @@ class RecipeNotifier extends StateNotifier<RecipeState> {
     }
   }
 
-  /// Delete recipe
+
   Future<bool> deleteRecipe(int id) async {
     try {
       await _recipeRepository.deleteRecipe(id);
@@ -152,14 +151,14 @@ class RecipeNotifier extends StateNotifier<RecipeState> {
     }
   }
 
-  /// Cook recipe - deducts ingredients from pantry
+
   Future<bool> cookRecipe(int id) async {
-    // Set cooking state
+ 
     state = state.copyWith(cookingRecipeId: id);
 
     try {
       await _recipeRepository.cookRecipe(id);
-      // Clear cooking state on success
+     
       state = state.copyWith(cookingRecipeId: null);
       return true;
     } on ApiException catch (e) {
@@ -174,22 +173,22 @@ class RecipeNotifier extends StateNotifier<RecipeState> {
     }
   }
 
-  /// Set category filter
+
   void setCategory(String? category) {
     state = state.copyWith(selectedCategory: category);
   }
 
-  /// Set sort
+ 
   void setSortBy(String? sort) {
     state = state.copyWith(sortBy: sort);
   }
 
-  /// Toggle can cook filter
+
   void setShowOnlyCanCook(bool value) {
     state = state.copyWith(showOnlyCanCook: value);
   }
 
-  /// Clear filters
+
   void clearFilters() {
     state = state.copyWith(
       selectedCategory: null,
@@ -198,30 +197,30 @@ class RecipeNotifier extends StateNotifier<RecipeState> {
     );
   }
 
-  /// Clear error
+
   void clearError() {
     state = state.copyWith(error: null);
   }
 
-  /// Refresh all
+ 
   Future<void> refresh() async {
     await Future.wait([loadRecipes(), loadRecommendations()]);
   }
 }
 
-/// Provider for RecipeNotifier
+
 final recipeProvider = StateNotifierProvider<RecipeNotifier, RecipeState>((
   ref,
 ) {
   return RecipeNotifier(ref.watch(recipeRepositoryProvider));
 });
 
-/// Provider for can cook count
+
 final canCookCountProvider = Provider<int>((ref) {
   return ref.watch(recipeProvider).canCookCount;
 });
 
-/// Provider for recommendations
+
 final recommendationsProvider = Provider<List<Recipe>>((ref) {
   return ref.watch(recipeProvider).recommendations;
 });
