@@ -196,7 +196,7 @@ flutter test integration_test/
 
 | Home                          | Pantry                            | Recipes                             |
 | ----------------------------- | --------------------------------- | ----------------------------------- |
-| ![Home](screenshots/home.jpeg) | ![Pantry](screenshots/pantry.jpeg) | ![Recipes](screenshots/recipes.jpeg) |
+| ![Home](screenshots/home.jpeg) | ![Pantry](screenshots/Pantry.jpeg) | ![Recipes](screenshots/recipes.jpeg) |
 
 ---
 
