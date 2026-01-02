@@ -63,7 +63,7 @@ Aplikasi ini terhubung dengan backend API Laravel untuk menyimpan dan mengelola 
 
 ```bash
 git clone [https://github.com/Irsyadadfiansha/UAS_PAM_MyPantries_Kelas_B.git]
-cd mypantries-mobile
+cd UAS_PAM_MyPantries_Kelas_B
 ```
 
 ### 2. Install Dependencies
