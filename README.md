@@ -1,7 +1,7 @@
 # 🍳 MyPantries - Smart Pantry & Meal Planner
 
 <p align="center">
-  <img src="screenshots/app_icon.jpeg" alt="MyPantries Logo" width="120" height="120">
+  <img src="screenshots/app_icon.png" alt="MyPantries Logo" width="120" height="120">
 </p>
 
 <p align="center">
