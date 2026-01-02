@@ -216,7 +216,7 @@ Proyek ini dibuat untuk keperluan tugas kuliah.
 
 Jika ada pertanyaan, silakan hubungi:
 
-- Email: your.email@example.com
+- Email: irsyadadfiansha9@gmail.com
 - GitHub: [@username](https://github.com/username)
 
 ---
