@@ -8,15 +8,6 @@
   Aplikasi mobile untuk mengelola bahan makanan di rumah dan menemukan resep berdasarkan bahan yang tersedia.
 </p>
 
-<p align="center">
-  <a href="#fitur">Fitur</a> •
-  <a href="#teknologi">Teknologi</a> •
-  <a href="#instalasi">Instalasi</a> •
-  <a href="#menjalankan-aplikasi">Menjalankan</a> •
-  <a href="#build-release">Build Release</a> •
-  <a href="#struktur-proyek">Struktur Proyek</a>
-</p>
-
 ---
 
 ## 📖 Tentang Proyek
@@ -220,11 +211,12 @@ Proyek ini dibuat untuk keperluan tugas kuliah.
 Jika ada pertanyaan, silakan hubungi:
 
 - Email: irsyadadfiansha9@gmail.com
-- GitHub: [@username](https://github.com/Irsyadadfiansha)
+- GitHub: [Profile_Github](https://github.com/Irsyadadfiansha)
 
 ---
 
-web UIN Sunan Gunung Djati Bandung ([https://uinsgd.ac.id/](https://uinsgd.ac.id/)) dan Jurusan Informatika ([http://if.uinsgd.ac.id/](http://if.uinsgd.ac.id/)) 
+Web UIN Sunan Gunung Djati Bandung : ([https://uinsgd.ac.id/](https://uinsgd.ac.id/)) 
+Jurusan Informatika : ([http://if.uinsgd.ac.id/](http://if.uinsgd.ac.id/)) 
 
 ---
 
