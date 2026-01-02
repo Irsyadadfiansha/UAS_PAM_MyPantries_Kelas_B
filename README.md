@@ -224,6 +224,14 @@ Jika ada pertanyaan, silakan hubungi:
 
 ---
 
+web UIN Sunan Gunung Djati Bandung ([https://uinsgd.ac.id/](https://uinsgd.ac.id/)) dan Jurusan Informatika ([http://if.uinsgd.ac.id/](http://if.uinsgd.ac.id/)) 
+
+---
+
+- pitch deck : ([[https://uinsgd.ac.id/](https://www.canva.com/design/DAG8_zhD--U/mtmeqbWrGTyLsI_Y9wkWgw/edit?utm_content=DAG8_zhD--U&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)])
+
+---
+
 <p align="center">
   Made with ❤️ using Flutter
 </p>
